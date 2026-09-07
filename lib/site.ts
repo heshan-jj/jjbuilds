@@ -3,9 +3,15 @@ export const site = {
   shortName: "JJ",
   tagline: "Websites, products, and software that ship.",
   description:
-    "JJbuilds is a product studio that designs and builds custom websites, web apps, and software for founders who need a product — not a brochure.",
+    "JJ Builds is a software studio that designs and builds websites, web apps, and custom software for businesses and founders.",
   email: "hello@jjbuilds.dev",
+  calLink: "heshan-jj/buildsbyjj",
   url: "https://jjbuilds.dev",
+  socials: [
+    { name: "GitHub", href: "https://github.com/heshan-jj" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/heshanjj" },
+    { name: "Facebook", href: "https://www.facebook.com/jjbuilds" },
+  ],
   locale: "en_US",
   keywords: [
     "product studio",
@@ -39,13 +45,13 @@ export const pages = {
   about: {
     title: "About the studio",
     description:
-      "JJbuilds is a product studio for founders and operators who want websites, web apps, and custom software built with direct access — no account-manager layer.",
+      "JJbuilds is a software studio for businesses and founders who want websites, web apps, and custom software built with direct access — no account-manager layer.",
     path: "/about",
   },
   contact: {
     title: "Start a project",
     description:
-      "Start a website, web app, or custom software project with JJbuilds. Share a short brief and get a reply within two business days.",
+      "Book a 15-minute intro with JJbuilds, or email a short brief. If the fit is wrong, we will say so.",
     path: "/contact",
   },
 } as const
@@ -214,22 +220,6 @@ export const faqs = [
     q: "Can you join an existing codebase?",
     a: "Yes, if the goal is clear and the stack is something we can stand behind. We will recommend a rewrite only when keeping the old one would cost you more.",
   },
-] as const
-
-export const projectTypes = [
-  "Website",
-  "Web app",
-  "SaaS / product",
-  "Custom software",
-  "Not sure yet",
-] as const
-
-export const budgetRanges = [
-  "Under $8k",
-  "$8k – $20k",
-  "$20k – $50k",
-  "$50k+",
-  "Let’s talk",
 ] as const
 
 export function getProject(slug: string) {

@@ -19,7 +19,7 @@ export function Hero() {
       <div className="mx-auto max-w-6xl">
         <BlurFade delay={0.05} inView>
           <p className="mb-6 text-xs font-medium tracking-[0.24em] text-primary uppercase">
-            Product studio
+            Software studio
           </p>
         </BlurFade>
 
