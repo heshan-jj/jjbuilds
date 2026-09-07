@@ -10,8 +10,8 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute top-[-20%] left-1/2 h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-primary/18 blur-[120px]" />
-        <div className="absolute right-[-10%] bottom-0 h-64 w-64 rounded-full bg-primary/10 blur-[80px]" />
+        <div className="absolute top-[-20%] left-1/2 h-[445px] w-[616px] -translate-x-1/2 rounded-full bg-primary/25 blur-[120px] animate-hero-orb" />
+        <div className="absolute right-[-10%] bottom-0 size-[274px] rounded-full bg-primary/18 blur-[80px] animate-hero-orb-alt" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,oklch(0.96_0.012_95/0.06)_1px,transparent_0)] bg-size-[22px_22px] mask-[radial-gradient(ellipse_at_center,black,transparent_72%)]" />
         <ProgressiveBlur position="bottom" height="120px" backgroundColor="#1a1914" />
       </div>

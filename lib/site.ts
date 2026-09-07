@@ -151,13 +151,6 @@ export const processSteps = [
   },
 ] as const
 
-export const stats = [
-  { value: 1, suffix: "", label: "Studio. You work with the people who build." },
-  { value: 3, suffix: "", label: "Offers: websites, web apps, custom software." },
-  { value: 4, suffix: "", label: "Weeks to a first useful slice, on most sites." },
-  { value: 0, suffix: "", label: "Account managers between you and the work." },
-] as const
-
 export const faqs = [
   {
     q: "Are you a new studio?",

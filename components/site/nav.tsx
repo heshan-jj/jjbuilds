@@ -20,25 +20,35 @@ import {
 export function SiteNav() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [fade, setFade] = useState(0)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 12)
+      setFade(open ? 0 : Math.min(1, Math.max(0, y / 240)))
+    }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+  }, [open])
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background,border,backdrop-filter] duration-300",
-        scrolled
-          ? "border-b border-white/8 bg-ink/70 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-12">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
+      <div
+        className={cn(
+          "mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full border px-4 sm:px-5",
+          fade < 0.85 ? "pointer-events-auto" : "pointer-events-none",
+          scrolled
+            ? "border-white/12 bg-ink/80 shadow-[0_12px_40px_oklch(0_0_0/0.4)] backdrop-blur-xl"
+            : "border-white/10 bg-ink/50 shadow-[0_8px_24px_oklch(0_0_0/0.2)] backdrop-blur-md"
+        )}
+        style={{
+          opacity: 1 - fade,
+          transform: `translateY(${fade * -10}px)`,
+        }}
+      >
         <Link href="/" className="flex items-baseline gap-1 tracking-tight">
           <span className="font-display text-lg font-semibold">{site.shortName}</span>
           <span className="text-sm text-muted-foreground">builds</span>
