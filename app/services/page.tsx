@@ -32,17 +32,21 @@ export default function ServicesPage() {
             <BlurFade key={service.slug} inView delay={index * 0.06}>
               <article
                 id={service.slug}
-                className="grid scroll-mt-28 gap-8 rounded-2xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]"
+                className="relative grid scroll-mt-28 gap-8 overflow-hidden rounded-3xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]"
               >
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-24 -right-16 size-64 rounded-full bg-primary/12 blur-3xl"
+                />
                 <div>
                   <p className="font-mono text-xs text-primary">{service.number}</p>
-                  <h2 className="font-display mt-3 text-3xl tracking-tight">
+                  <h2 className="font-display mt-3 text-3xl tracking-tight sm:text-4xl">
                     {service.title}
                   </h2>
                   <p className="mt-2 text-xs tracking-[0.18em] text-muted-foreground uppercase">
                     {service.eyebrow}
                   </p>
-                  <p className="mt-6 text-sm text-muted-foreground">
+                  <p className="mt-6 inline-flex rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs text-muted-foreground">
                     Typical timeline · {service.timeline}
                   </p>
                 </div>
@@ -55,7 +59,10 @@ export default function ServicesPage() {
                   </p>
                   <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
                     {service.includes.map((item) => (
-                      <li key={item} className="flex gap-2">
+                      <li
+                        key={item}
+                        className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-2"
+                      >
                         <span className="text-primary">→</span>
                         {item}
                       </li>
