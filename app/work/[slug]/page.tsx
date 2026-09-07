@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { JsonLd } from "@/components/seo/json-ld"
 import { GlowButton } from "@/components/ui/glow-button"
+import { Breadcrumbs } from "@/components/site/breadcrumbs"
 import { ProjectVisual } from "@/components/work/project-visual"
+import { breadcrumbJsonLd, pageMetadata, projectJsonLd } from "@/lib/seo"
 import { getProject, projects } from "@/lib/site"
 
 type PageProps = {
@@ -13,13 +16,37 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }))
 }
 
+export const dynamicParams = false
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const project = getProject(slug)
-  if (!project) return { title: "Work" }
-  return {
-    title: project.title,
+  if (!project) return { title: "Work", robots: { index: false, follow: true } }
+
+  const meta = pageMetadata({
+    title: `${project.title} capability study`,
     description: project.summary,
+    path: `/work/${project.slug}`,
+    type: "article",
+  })
+
+  return {
+    ...meta,
+    openGraph: {
+      ...meta.openGraph,
+      images: [
+        {
+          url: `/work/${project.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — JJbuilds`,
+        },
+      ],
+    },
+    twitter: {
+      ...meta.twitter,
+      images: [`/work/${project.slug}/opengraph-image`],
+    },
   }
 }
 
@@ -28,9 +55,25 @@ export default async function WorkDetailPage({ params }: PageProps) {
   const project = getProject(slug)
   if (!project) notFound()
 
+  const jsonLd = [
+    projectJsonLd(slug),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/work" },
+      { name: project.title, path: `/work/${project.slug}` },
+    ]),
+  ].filter(Boolean)
+
   return (
     <article className="px-5 pt-32 pb-24 sm:px-8 sm:pt-40 lg:px-12">
+      <JsonLd data={jsonLd} />
       <div className="mx-auto max-w-6xl">
+        <Breadcrumbs
+          items={[
+            { href: "/work", label: "Work" },
+            { href: `/work/${project.slug}`, label: project.title },
+          ]}
+        />
         <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
           {project.category} · {project.year}
         </p>

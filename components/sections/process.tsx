@@ -4,7 +4,7 @@ import { processSteps } from "@/lib/site"
 
 export function Process() {
   return (
-    <Section>
+    <Section id="process">
       <BlurFade inView>
         <SectionEyebrow>How we work</SectionEyebrow>
         <SectionTitle>A short path from brief to something you can click.</SectionTitle>

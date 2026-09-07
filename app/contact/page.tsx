@@ -1,17 +1,24 @@
 import type { Metadata } from "next"
 import { InquiryForm } from "@/components/contact/inquiry-form"
+import { JsonLd } from "@/components/seo/json-ld"
 import { PageHero } from "@/components/site/section"
-import { site } from "@/lib/site"
+import { breadcrumbJsonLd, contactJsonLd, pageMetadata } from "@/lib/seo"
+import { pages, site } from "@/lib/site"
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Start a project with JJbuilds. Tell us what you are building — website, web app, or custom software.",
-}
+export const metadata: Metadata = pageMetadata(pages.contact)
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          contactJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow="Contact"
         title="Tell us what needs to ship."

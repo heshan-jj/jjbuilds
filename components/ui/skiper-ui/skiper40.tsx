@@ -25,14 +25,12 @@ const Link000 = ({
   children,
   href,
   className,
-}: {
-  children: React.ReactNode;
-  href: string;
-  className?: string;
-}) => {
+  ...props
+}: React.ComponentProps<typeof Link>) => {
   return (
     <Link
       href={href}
+      {...props}
       className={cn(
         "group relative flex items-center",
         className,

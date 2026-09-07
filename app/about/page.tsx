@@ -1,14 +1,12 @@
 import type { Metadata } from "next"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GlowButton } from "@/components/ui/glow-button"
+import { JsonLd } from "@/components/seo/json-ld"
 import { PageHero } from "@/components/site/section"
-import { site } from "@/lib/site"
+import { aboutJsonLd, breadcrumbJsonLd, pageMetadata } from "@/lib/seo"
+import { pages, site } from "@/lib/site"
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "JJbuilds is a new product studio. Direct access, short loops, and no account-manager layer.",
-}
+export const metadata: Metadata = pageMetadata(pages.about)
 
 const advantages = [
   {
@@ -28,6 +26,15 @@ const advantages = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          aboutJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow="About"
         title="A studio small enough to stay on the brief."

@@ -17,7 +17,7 @@ export function ServicesBento() {
         {services.map((service, index) => (
           <BlurFade key={service.slug} inView delay={index * 0.08}>
             <Link
-              href="/services"
+              href={`/services#${service.slug}`}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/8 bg-card p-6 transition-colors hover:border-primary/30 sm:p-8"
             >
               {index === 0 && (

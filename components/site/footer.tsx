@@ -16,23 +16,25 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-4 sm:items-end">
-          <div className="flex flex-wrap gap-6">
-            {navLinks.map((link) => (
+          <nav aria-label="Footer">
+            <div className="flex flex-wrap gap-6">
+              {navLinks.map((link) => (
+                <Link000
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
+                  {link.label}
+                </Link000>
+              ))}
               <Link000
-                key={link.href}
-                href={link.href}
+                href="/contact"
                 className="text-sm text-muted-foreground hover:text-foreground"
               >
-                {link.label}
+                Contact
               </Link000>
-            ))}
-            <Link000
-              href="/contact"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              Contact
-            </Link000>
-          </div>
+            </div>
+          </nav>
           <a
             href={`mailto:${site.email}`}
             className="text-sm text-foreground/80 hover:text-primary"
@@ -40,7 +42,7 @@ export function SiteFooter() {
             {site.email}
           </a>
           <p className="text-xs text-muted-foreground/70">
-            Motion pieces from Skiper UI and Magic UI.
+            © {site.updatedAt.slice(0, 4)} {site.name}. Motion pieces from Skiper UI and Magic UI.
           </p>
         </div>
       </div>

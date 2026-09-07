@@ -3,9 +3,51 @@ export const site = {
   shortName: "JJ",
   tagline: "Websites, products, and software that ship.",
   description:
-    "JJbuilds is a product studio that designs and builds websites, web apps, and custom software for founders who need a product — not a brochure.",
+    "JJbuilds is a product studio that designs and builds custom websites, web apps, and software for founders who need a product — not a brochure.",
   email: "hello@jjbuilds.com",
   url: "https://jjbuilds.com",
+  locale: "en_US",
+  keywords: [
+    "product studio",
+    "website design",
+    "web app development",
+    "custom software",
+    "SaaS design",
+    "Next.js studio",
+  ],
+  updatedAt: "2026-09-07",
+} as const
+
+export const pages = {
+  home: {
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    path: "/",
+  },
+  work: {
+    title: "Work & capability studies",
+    description:
+      "See how JJbuilds approaches marketing websites, SaaS products, and custom ops software — capability studies before the first client logo.",
+    path: "/work",
+  },
+  services: {
+    title: "Websites, web apps & custom software",
+    description:
+      "Website design, web app development, and custom software from JJbuilds. Clear timelines, Next.js builds, and a studio that stays through launch.",
+    path: "/services",
+  },
+  about: {
+    title: "About the studio",
+    description:
+      "JJbuilds is a product studio for founders and operators who want websites, web apps, and custom software built with direct access — no account-manager layer.",
+    path: "/about",
+  },
+  contact: {
+    title: "Start a project",
+    description:
+      "Start a website, web app, or custom software project with JJbuilds. Share a short brief and get a reply within two business days.",
+    path: "/contact",
+  },
 } as const
 
 export const navLinks = [

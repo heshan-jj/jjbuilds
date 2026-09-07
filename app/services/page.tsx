@@ -1,18 +1,25 @@
 import type { Metadata } from "next"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GlowButton } from "@/components/ui/glow-button"
+import { JsonLd } from "@/components/seo/json-ld"
 import { PageHero } from "@/components/site/section"
-import { services } from "@/lib/site"
+import { breadcrumbJsonLd, pageMetadata, servicesJsonLd } from "@/lib/seo"
+import { pages, services } from "@/lib/site"
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "JJbuilds designs and builds websites, web apps, and custom software — with a timeline and a clear include list.",
-}
+export const metadata: Metadata = pageMetadata(pages.services)
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          servicesJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow="Services"
         title="Pick the surface. We stay through launch."
@@ -23,7 +30,10 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl space-y-6">
           {services.map((service, index) => (
             <BlurFade key={service.slug} inView delay={index * 0.06}>
-              <article className="grid gap-8 rounded-2xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]">
+              <article
+                id={service.slug}
+                className="grid scroll-mt-28 gap-8 rounded-2xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]"
+              >
                 <div>
                   <p className="font-mono text-xs text-primary">{service.number}</p>
                   <h2 className="font-display mt-3 text-3xl tracking-tight">

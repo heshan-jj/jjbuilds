@@ -5,7 +5,7 @@ import { Section } from "@/components/site/section"
 
 export function ClosingCta() {
   return (
-    <Section>
+    <Section id="next-step">
       <BlurFade inView>
         <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-card px-6 py-14 text-center sm:px-12 sm:py-20">
           <BorderBeam

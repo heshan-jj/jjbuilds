@@ -49,24 +49,32 @@ export function SiteNav() {
           transform: `translateY(${fade * -10}px)`,
         }}
       >
-        <Link href="/" className="flex items-baseline gap-1 tracking-tight">
+        <Link
+          href="/"
+          aria-label={`${site.name} home`}
+          className="flex items-baseline gap-1 tracking-tight"
+        >
           <span className="font-display text-lg font-semibold">{site.shortName}</span>
           <span className="text-sm text-muted-foreground">builds</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link000
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm text-muted-foreground transition-colors hover:text-foreground",
-                pathname.startsWith(link.href) && "text-foreground"
-              )}
-            >
-              {link.label}
-            </Link000>
-          ))}
+        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => {
+            const active = pathname.startsWith(link.href)
+            return (
+              <Link000
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "text-sm text-muted-foreground transition-colors hover:text-foreground",
+                  active && "text-foreground"
+                )}
+              >
+                {link.label}
+              </Link000>
+            )
+          })}
         </nav>
 
         <div className="hidden md:block">
@@ -94,12 +102,13 @@ export function SiteNav() {
                 {site.name}
               </SheetTitle>
             </SheetHeader>
-            <nav className="flex flex-col gap-1 px-4">
+            <nav aria-label="Mobile" className="flex flex-col gap-1 px-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
+                  aria-current={pathname.startsWith(link.href) ? "page" : undefined}
                   className="rounded-lg px-2 py-3 text-lg text-foreground"
                 >
                   {link.label}

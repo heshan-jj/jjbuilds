@@ -1,19 +1,26 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { BlurFade } from "@/components/ui/blur-fade"
+import { JsonLd } from "@/components/seo/json-ld"
 import { PageHero } from "@/components/site/section"
 import { ProjectVisual } from "@/components/work/project-visual"
-import { projects } from "@/lib/site"
+import { breadcrumbJsonLd, pageMetadata, workIndexJsonLd } from "@/lib/seo"
+import { pages, projects } from "@/lib/site"
 
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Capability studies from JJbuilds — websites, SaaS, and custom software patterns we bring to client work.",
-}
+export const metadata: Metadata = pageMetadata(pages.work)
 
 export default function WorkPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          workIndexJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow="Work"
         title="Capability studies, not invented clients."
