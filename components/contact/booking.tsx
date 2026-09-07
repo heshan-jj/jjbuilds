@@ -14,6 +14,31 @@ const pagePrimary = "oklch(0.9 0.2 126)"
 const pagePrimaryFg = "oklch(0.16 0.03 126)"
 const pageLine = "oklch(0.96 0.012 95 / 10%)"
 
+const calCssVars = {
+  "cal-brand": pagePrimary,
+  "cal-brand-emphasis": pagePrimary,
+  "cal-brand-text": pagePrimaryFg,
+  "cal-brand-subtle": pagePrimary,
+  "cal-brand-accent": pagePrimaryFg,
+  "cal-text": pageFg,
+  "cal-text-emphasis": pageFg,
+  "cal-text-subtle": pageMuted,
+  "cal-text-muted": pageMuted,
+  "cal-text-inverted": pageBg,
+  "cal-bg": pageCard,
+  "cal-bg-emphasis": "oklch(0.22 0.012 100)",
+  "cal-bg-subtle": "oklch(0.2 0.012 100)",
+  "cal-bg-muted": pageCard,
+  "cal-bg-inverted": pageFg,
+  "cal-border": pageLine,
+  "cal-border-emphasis": pageLine,
+  "cal-border-subtle": pageLine,
+  "cal-border-muted": "transparent",
+  "cal-border-booker": "transparent",
+  "cal-border-booker-width": "0px",
+  radius: "0.75rem",
+}
+
 export function BookingCalendar() {
   useEffect(() => {
     void (async () => {
@@ -26,30 +51,8 @@ export function BookingCalendar() {
           branding: { brandColor: pagePrimary },
         },
         cssVarsPerTheme: {
-          dark: {
-            "cal-brand": pagePrimary,
-            "cal-brand-emphasis": pagePrimary,
-            "cal-brand-text": pagePrimaryFg,
-            "cal-brand-subtle": pagePrimary,
-            "cal-brand-accent": pagePrimaryFg,
-            "cal-text": pageFg,
-            "cal-text-emphasis": pageFg,
-            "cal-text-subtle": pageMuted,
-            "cal-text-muted": pageMuted,
-            "cal-text-inverted": pageBg,
-            "cal-bg": pageCard,
-            "cal-bg-emphasis": "oklch(0.22 0.012 100)",
-            "cal-bg-subtle": "oklch(0.2 0.012 100)",
-            "cal-bg-muted": pageCard,
-            "cal-bg-inverted": pageFg,
-            "cal-border": pageLine,
-            "cal-border-emphasis": pageLine,
-            "cal-border-subtle": pageLine,
-            "cal-border-muted": "transparent",
-            "cal-border-booker": "transparent",
-            "cal-border-booker-width": "0px",
-            radius: "0.75rem",
-          },
+          light: calCssVars,
+          dark: calCssVars,
         },
       })
     })()

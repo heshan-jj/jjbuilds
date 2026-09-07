@@ -64,7 +64,7 @@ export function organizationJsonLd() {
         email: site.email,
         description: site.description,
         slogan: site.tagline,
-        logo: absoluteUrl("/icon"),
+        logo: absoluteUrl("/icon.png"),
         image: absoluteUrl("/opengraph-image"),
         contactPoint: {
           "@type": "ContactPoint",
