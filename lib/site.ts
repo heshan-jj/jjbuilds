@@ -4,8 +4,8 @@ export const site = {
   tagline: "Websites, products, and software that ship.",
   description:
     "JJbuilds is a product studio that designs and builds custom websites, web apps, and software for founders who need a product — not a brochure.",
-  email: "hello@jjbuilds.com",
-  url: "https://jjbuilds.com",
+  email: "hello@jjbuilds.dev",
+  url: "https://jjbuilds.dev",
   locale: "en_US",
   keywords: [
     "product studio",

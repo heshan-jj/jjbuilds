@@ -1,5 +1,7 @@
 "use server"
 
+import { site } from "@/lib/site"
+
 export type InquiryState = {
   status: "idle" | "success" | "error"
   message?: string
@@ -54,7 +56,7 @@ export async function submitInquiry(
     if (!response.ok) {
       return {
         status: "error",
-        message: "We could not send that just now. Email hello@jjbuilds.com.",
+        message: `We could not send that just now. Email ${site.email}.`,
       }
     }
   } else {
