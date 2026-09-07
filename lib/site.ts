@@ -153,24 +153,24 @@ export const processSteps = [
 
 export const faqs = [
   {
-    q: "Are you a new studio?",
-    a: "Yes. That is the point. You work directly with the people designing and shipping — no layers, no leftover process from a 40-person shop.",
+    q: "You're new. Why hire you over a known shop?",
+    a: "You work with the people who design and write the code. No account layer, no leftover process, no junior handoff after the pitch. A new studio is a feature if you want speed and a high bar.",
   },
   {
-    q: "Do you take projects without a portfolio of client logos?",
-    a: "The site is the first proof of craft. Concept case studies show how we think. If the fit is right, we start with a paid discovery week.",
+    q: "Where is the client work?",
+    a: "This site is the first proof. The three capability studies show how we approach a marketing site, a SaaS, and an ops tool. If the fit is right, we start with a paid discovery week — not a speculative deck.",
   },
   {
     q: "What does a typical engagement cost?",
-    a: "Marketing sites usually start in the mid four figures. Product and custom software are scoped after discovery. We will tell you if we are the wrong fit.",
+    a: "Marketing sites usually start in the mid four figures. Apps and custom software are scoped after discovery. We price the first useful slice, not a twelve-month fantasy. If we are the wrong fit, we say so in the first reply.",
   },
   {
-    q: "Do you only work in Next.js?",
-    a: "It is our default for the web because it ships fast and stays yours. If the product needs something else, we say so.",
+    q: "How long until something is live?",
+    a: "Most marketing sites see a first useful slice in about four weeks. Product work ships in verticals you can click — not a big-bang reveal at the end.",
   },
   {
     q: "Can you join an existing codebase?",
-    a: "Yes — if the goal is clear and the stack is something we can stand behind. We will say no if a rewrite would waste your money.",
+    a: "Yes, if the goal is clear and the stack is something we can stand behind. We will recommend a rewrite only when keeping the old one would cost you more.",
   },
 ] as const
 
