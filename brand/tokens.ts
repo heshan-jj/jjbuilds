@@ -20,5 +20,6 @@ export const brand = {
     icon: "/brand/icon.png",
     appleIcon: "/brand/apple-icon.png",
     mark: "/brand/mark.svg",
+    linkedinCover: "/brand/linkedin-cover.png",
   },
 } as const
