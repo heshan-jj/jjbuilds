@@ -1,14 +1,15 @@
 import Link from "next/link"
+import { WordmarkName } from "@/brand/wordmark"
 import { navLinks, site } from "@/lib/site"
-import { Link000 } from "@/components/ui/skiper-ui/skiper40"
+import { UnderlineLink } from "@/components/ui/underline-link"
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/8 px-5 py-14 sm:px-8 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <Link href="/" className="font-display text-2xl tracking-tight">
-            {site.name}
+          <Link href="/" className="transition-colors duration-500 ease-smooth hover:text-primary">
+            <WordmarkName className="text-2xl" />
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {site.tagline}
@@ -19,25 +20,25 @@ export function SiteFooter() {
           <nav aria-label="Footer">
             <div className="flex flex-wrap gap-6">
               {navLinks.map((link) => (
-                <Link000
+                <UnderlineLink
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground"
+                  className="text-sm text-muted-foreground transition-colors duration-500 ease-smooth hover:text-foreground"
                 >
                   {link.label}
-                </Link000>
+                </UnderlineLink>
               ))}
-              <Link000
+              <UnderlineLink
                 href="/contact"
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm text-muted-foreground transition-colors duration-500 ease-smooth hover:text-foreground"
               >
                 Contact
-              </Link000>
+              </UnderlineLink>
             </div>
           </nav>
           <a
             href={`mailto:${site.email}`}
-            className="text-sm text-foreground/80 hover:text-primary"
+            className="text-sm text-foreground/80 transition-colors duration-500 ease-smooth hover:text-primary"
           >
             {site.email}
           </a>

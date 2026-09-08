@@ -4,7 +4,7 @@ export const site = {
   tagline: "Websites, products, and software that ship.",
   description:
     "JJ Builds is a software studio that designs and builds websites, web apps, and custom software for businesses and founders.",
-  email: "hello@jjbuilds.dev",
+  email: "jjbuilds.dev@gmail.com",
   calLink: "heshan-jj/buildsbyjj",
   url: "https://jjbuilds.dev",
   socials: [

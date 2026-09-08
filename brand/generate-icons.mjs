@@ -1,12 +1,15 @@
-import { writeFileSync } from "node:fs"
+import { copyFileSync, mkdirSync, writeFileSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 import { createElement } from "react"
 import { ImageResponse } from "next/og.js"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
+const brandPublic = join(root, "public", "brand")
 const appDir = join(root, "app")
-const publicDir = join(root, "public")
+
+const ink = "#171614"
+const lime = "#c8f53c"
 
 async function renderPng(size, fontSize) {
   const response = new ImageResponse(
@@ -19,8 +22,8 @@ async function renderPng(size, fontSize) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#171614",
-          color: "#c8f53c",
+          background: ink,
+          color: lime,
           fontSize,
           fontWeight: 700,
           letterSpacing: size >= 48 ? -2 : 0,
@@ -60,6 +63,8 @@ function pngToIco(images) {
   return Buffer.concat([header, ...directories, ...images.map((image) => image.data)])
 }
 
+mkdirSync(brandPublic, { recursive: true })
+
 const png48 = await renderPng(48, 22)
 const png180 = await renderPng(180, 84)
 const png192 = await renderPng(192, 90)
@@ -69,9 +74,9 @@ const favicon = pngToIco([
   { width: 192, height: 192, data: png192 },
 ])
 
-writeFileSync(join(appDir, "favicon.ico"), favicon)
-writeFileSync(join(publicDir, "favicon.ico"), favicon)
-writeFileSync(join(publicDir, "icon.png"), png192)
-writeFileSync(join(publicDir, "apple-icon.png"), png180)
+writeFileSync(join(brandPublic, "favicon.ico"), favicon)
+writeFileSync(join(brandPublic, "icon.png"), png192)
+writeFileSync(join(brandPublic, "apple-icon.png"), png180)
+copyFileSync(join(brandPublic, "favicon.ico"), join(appDir, "favicon.ico"))
 
-console.log("Wrote app/favicon.ico, public/favicon.ico, public/icon.png, public/apple-icon.png")
+console.log("Wrote public/brand/{favicon.ico,icon.png,apple-icon.png} and app/favicon.ico")

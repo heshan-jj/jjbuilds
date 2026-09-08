@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { brand } from "@/brand/tokens"
 import { site } from "@/lib/site"
 
 export default function manifest(): MetadataRoute.Manifest {
@@ -8,24 +9,24 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#171614",
-    theme_color: "#171614",
+    background_color: brand.hex.ink,
+    theme_color: brand.hex.ink,
     lang: "en",
     categories: ["business", "design", "developer"],
     icons: [
       {
-        src: "/favicon.ico",
+        src: brand.assets.favicon,
         sizes: "48x48",
         type: "image/x-icon",
       },
       {
-        src: "/icon.png",
+        src: brand.assets.icon,
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/apple-icon.png",
+        src: brand.assets.appleIcon,
         sizes: "180x180",
         type: "image/png",
       },

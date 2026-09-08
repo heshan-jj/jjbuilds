@@ -26,11 +26,11 @@ export function GlowButton({
   const classes =
     variant === "ghost"
       ? cn(
-          "inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/5",
+          "inline-flex h-12 items-center justify-center rounded-full border border-foreground/15 px-6 text-sm font-medium text-foreground transition-[transform,border-color,background-color,box-shadow] duration-500 ease-smooth hover:-translate-y-0.5 hover:border-foreground/30 hover:bg-foreground/5 motion-reduce:hover:translate-y-0",
           className
         )
       : cn(
-          "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_0_0_oklch(0.9_0.2_126/0)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_32px_oklch(0.9_0.2_126/0.45)] active:translate-y-0",
+          "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_0_0_oklch(0.9_0.2_126/0)] transition-[transform,box-shadow] duration-500 ease-smooth hover:-translate-y-0.5 hover:shadow-[0_0_32px_oklch(0.9_0.2_126/0.45)] active:translate-y-0 motion-reduce:hover:translate-y-0",
           className
         )
 
@@ -41,7 +41,7 @@ export function GlowButton({
       <>
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:animate-shine group-hover:opacity-100"
+          className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-transparent via-white/40 to-transparent opacity-0 transition-opacity duration-500 ease-smooth group-hover:animate-shine group-hover:opacity-100"
         />
         <span className="relative">{children}</span>
       </>

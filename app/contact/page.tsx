@@ -73,7 +73,7 @@ export default function ContactPage() {
             </p>
             <a
               href={mailto}
-              className="font-display mt-4 block text-2xl tracking-tight break-all transition-colors hover:text-primary sm:text-3xl"
+              className="font-display mt-4 block text-2xl tracking-tight break-all transition-colors duration-500 ease-smooth hover:text-primary sm:text-3xl"
             >
               {site.email}
             </a>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex size-10 items-center justify-center rounded-full border border-white/12 bg-white/4 text-muted-foreground transition-[background-color,border-color,color,transform] duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/12 bg-white/4 text-muted-foreground transition-[background-color,border-color,color,transform] duration-500 ease-smooth hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
                 >
                   <SocialGlyph name={social.name} />
                 </a>

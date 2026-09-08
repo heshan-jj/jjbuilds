@@ -1,3 +1,4 @@
+import { brand } from "@/brand/tokens"
 import { cn } from "@/lib/utils"
 
 const accents = {
@@ -17,13 +18,11 @@ export function ProjectVisual({
 }) {
   return (
     <div
-      className={cn(
-        "relative isolate overflow-hidden bg-[#101010]",
-        className
-      )}
+      className={cn("relative isolate overflow-hidden", className)}
+      style={{ background: brand.hex.surface }}
       aria-hidden
     >
-      <div className={cn("absolute -top-16 -right-10 h-56 w-56 rounded-full bg-linear-to-br blur-2xl", accents[accent])} />
+      <div className={cn("absolute -top-16 -right-10 h-56 w-56 rounded-full bg-linear-to-br blur-2xl transition-transform duration-700 ease-smooth group-hover:scale-110", accents[accent])} />
       <div className="absolute inset-6 rounded-xl border border-white/10 bg-white/3" />
       <div className="absolute inset-x-10 top-12 h-3 rounded-full bg-white/8" />
       <div className="absolute inset-x-10 top-20 grid grid-cols-3 gap-3">

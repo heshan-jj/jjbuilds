@@ -2,17 +2,18 @@
 
 import { useEffect } from "react"
 import Cal, { getCalApi } from "@calcom/embed-react"
+import { brand } from "@/brand/tokens"
 import { site } from "@/lib/site"
 
 const namespace = "intro"
 
-const pageBg = "oklch(0.125 0.012 100)"
-const pageFg = "oklch(0.96 0.012 95)"
-const pageMuted = "oklch(0.72 0.02 95)"
-const pageCard = "oklch(0.17 0.012 100)"
-const pagePrimary = "oklch(0.9 0.2 126)"
-const pagePrimaryFg = "oklch(0.16 0.03 126)"
-const pageLine = "oklch(0.96 0.012 95 / 10%)"
+const pageBg = brand.oklch.ink
+const pageFg = brand.oklch.cream
+const pageMuted = brand.oklch.muted
+const pageCard = brand.oklch.card
+const pagePrimary = brand.oklch.lime
+const pagePrimaryFg = brand.oklch.primaryForeground
+const pageLine = brand.oklch.line
 
 const calCssVars = {
   "cal-brand": pagePrimary,

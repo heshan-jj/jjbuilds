@@ -4,9 +4,10 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Menu } from "lucide-react"
+import { Wordmark } from "@/brand/wordmark"
 import { navLinks, site } from "@/lib/site"
 import { cn } from "@/lib/utils"
-import { Link000 } from "@/components/ui/skiper-ui/skiper40"
+import { UnderlineLink } from "@/components/ui/underline-link"
 import { GlowButton } from "@/components/ui/glow-button"
 import { Button } from "@/components/ui/button"
 import {
@@ -38,7 +39,7 @@ export function SiteNav() {
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
       <div
         className={cn(
-          "mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full border px-4 sm:px-5",
+          "mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full border px-4 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-smooth sm:px-5",
           fade < 0.85 ? "pointer-events-auto" : "pointer-events-none",
           scrolled
             ? "border-white/12 bg-ink/80 shadow-[0_12px_40px_oklch(0_0_0/0.4)] backdrop-blur-xl"
@@ -52,27 +53,26 @@ export function SiteNav() {
         <Link
           href="/"
           aria-label={`${site.name} home`}
-          className="flex items-baseline gap-1 tracking-tight"
+          className="transition-opacity duration-500 ease-smooth hover:opacity-70"
         >
-          <span className="font-display text-lg font-semibold">{site.shortName}</span>
-          <span className="text-sm text-muted-foreground">builds</span>
+          <Wordmark markClassName="text-lg" restClassName="text-sm" />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => {
             const active = pathname.startsWith(link.href)
             return (
-              <Link000
+              <UnderlineLink
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "text-sm text-muted-foreground transition-colors hover:text-foreground",
+                  "text-sm text-muted-foreground transition-colors duration-500 ease-smooth hover:text-foreground",
                   active && "text-foreground"
                 )}
               >
                 {link.label}
-              </Link000>
+              </UnderlineLink>
             )
           })}
         </nav>
@@ -109,7 +109,7 @@ export function SiteNav() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname.startsWith(link.href) ? "page" : undefined}
-                  className="rounded-lg px-2 py-3 text-lg text-foreground"
+                  className="rounded-lg px-2 py-3 text-lg text-foreground transition-colors duration-500 ease-smooth hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -117,7 +117,7 @@ export function SiteNav() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground"
+                className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-smooth hover:-translate-y-0.5 hover:shadow-[0_0_32px_oklch(0.9_0.2_126/0.45)]"
               >
                 Start a project
               </Link>

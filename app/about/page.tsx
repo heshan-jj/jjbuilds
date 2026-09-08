@@ -129,7 +129,7 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {advantages.map((item, index) => (
             <BlurFade key={item.title} inView delay={index * 0.08} className="h-full">
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/8 bg-card p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-primary/35 sm:p-7">
+              <article className="hover-lift group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/8 bg-card p-6 sm:p-7">
                 <div aria-hidden className="pointer-events-none absolute inset-0">
                   <div className="absolute -top-24 -right-16 size-52 rounded-full bg-primary/16 blur-3xl opacity-40 transition-opacity duration-500 group-hover:opacity-90" />
                 </div>
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 {fit.good.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-3"
+                    className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-3 transition-[border-color,background-color] duration-500 ease-smooth hover:border-primary/25 hover:bg-primary/5"
                   >
                     <span className="text-primary">→</span>
                     {item}
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 {fit.skip.map((item) => (
                   <li
                     key={item}
-                    className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-3"
+                    className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-3 transition-[border-color,background-color] duration-500 ease-smooth hover:border-white/12 hover:bg-white/4"
                   >
                     <span className="text-muted-foreground/50">×</span>
                     {item}

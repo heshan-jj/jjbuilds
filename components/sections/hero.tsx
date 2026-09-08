@@ -1,6 +1,6 @@
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GlowButton } from "@/components/ui/glow-button"
-import { ProgressiveBlur } from "@/components/ui/skiper-ui/skiper41"
+import { ProgressiveBlur } from "@/components/ui/progressive-blur"
 import { site } from "@/lib/site"
 
 export function Hero() {

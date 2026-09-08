@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { brand } from "@/brand/tokens"
 import { faqs, projects, services, site } from "@/lib/site"
 
 export function absoluteUrl(path = "/") {
@@ -64,7 +65,7 @@ export function organizationJsonLd() {
         email: site.email,
         description: site.description,
         slogan: site.tagline,
-        logo: absoluteUrl("/icon.png"),
+        logo: absoluteUrl(brand.assets.icon),
         image: absoluteUrl("/opengraph-image"),
         contactPoint: {
           "@type": "ContactPoint",

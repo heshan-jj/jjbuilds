@@ -32,7 +32,7 @@ export default function ServicesPage() {
             <BlurFade key={service.slug} inView delay={index * 0.06}>
               <article
                 id={service.slug}
-                className="relative grid scroll-mt-28 gap-8 overflow-hidden rounded-3xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]"
+                className="hover-lift relative grid scroll-mt-28 gap-8 overflow-hidden rounded-3xl border border-white/8 bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr]"
               >
                 <div
                   aria-hidden
@@ -61,7 +61,7 @@ export default function ServicesPage() {
                     {service.includes.map((item) => (
                       <li
                         key={item}
-                        className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-2"
+                        className="flex gap-3 rounded-xl border border-white/6 bg-background/40 px-3 py-2 transition-[border-color,background-color] duration-500 ease-smooth hover:border-primary/25 hover:bg-primary/5"
                       >
                         <span className="text-primary">→</span>
                         {item}

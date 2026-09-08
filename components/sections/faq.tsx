@@ -35,7 +35,7 @@ export function Faq() {
               <AccordionItem
                 key={item.q}
                 value={item.q}
-                className="overflow-hidden rounded-2xl border border-white/8 bg-card not-last:border-b-0 transition-colors data-open:border-primary/35 data-open:bg-primary/4"
+                className="overflow-hidden rounded-2xl border border-white/8 bg-card not-last:border-b-0 transition-[border-color,background-color] duration-500 ease-smooth hover:border-white/16 data-open:border-primary/35 data-open:bg-primary/4"
               >
                 <AccordionTrigger className="items-center gap-4 px-5 py-5 text-left text-base font-medium hover:no-underline sm:px-6 [&_[data-slot=accordion-trigger-icon]]:hidden">
                   <span className="font-mono text-xs text-primary">
@@ -44,8 +44,8 @@ export function Faq() {
                   <span className="font-display flex-1 text-lg tracking-tight sm:text-xl">
                     {item.q}
                   </span>
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/12 bg-background/40">
-                    <Plus className="size-3.5 transition-transform duration-300 group-aria-expanded/accordion-trigger:rotate-45" />
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/12 bg-background/40 transition-[border-color,background-color,transform] duration-500 ease-smooth group-hover/accordion-trigger:border-primary/50 group-hover/accordion-trigger:bg-primary/10">
+                    <Plus className="size-3.5 transition-transform duration-500 ease-smooth group-aria-expanded/accordion-trigger:rotate-45" />
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="px-5 pb-6 text-sm leading-relaxed text-muted-foreground sm:px-6 sm:pl-[4.25rem] sm:text-base">

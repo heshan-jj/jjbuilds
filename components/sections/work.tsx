@@ -16,10 +16,10 @@ export function SelectedWork() {
         <BlurFade inView delay={0.1}>
           <Link
             href="/work"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-500 ease-smooth hover:text-foreground"
           >
             All work
-            <ArrowUpRight className="size-4" />
+            <ArrowUpRight className="size-4 transition-transform duration-500 ease-smooth group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </BlurFade>
       </div>
@@ -29,12 +29,12 @@ export function SelectedWork() {
           <BlurFade key={project.slug} inView delay={index * 0.08}>
             <Link
               href={`/work/${project.slug}`}
-              className="group block overflow-hidden rounded-2xl border border-white/8 bg-card transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-primary/25"
+              className="hover-lift group block overflow-hidden rounded-2xl border border-white/8 bg-card"
             >
               <ProjectVisual
                 accent={project.accent}
                 title={project.title}
-                className="aspect-[4/3] transition-transform duration-500 group-hover:scale-[1.03]"
+                className="aspect-[4/3] transition-transform duration-700 ease-smooth group-hover:scale-[1.03] motion-reduce:group-hover:scale-100"
               />
               <div className="p-5">
                 <div className="flex items-center justify-between text-xs text-muted-foreground">

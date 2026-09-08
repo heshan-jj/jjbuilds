@@ -3,11 +3,12 @@
 import { useRef, type PointerEvent } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { brand } from "@/brand/tokens"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { Section, SectionEyebrow, SectionTitle } from "@/components/site/section"
 import { services } from "@/lib/site"
 
-const hoverEase = "duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+const hoverEase = "duration-500 ease-smooth"
 
 export function ServicesBento() {
   return (
@@ -95,10 +96,11 @@ function ServiceMark({ slug }: { slug: string }) {
   return (
     <div
       aria-hidden
-      className={`relative mt-6 h-[4.5rem] overflow-hidden rounded-xl border border-white/8 bg-[#101010] transition-transform ${hoverEase} group-hover:scale-[1.03]`}
+      className={`relative mt-6 h-[4.5rem] overflow-hidden rounded-xl border border-white/8 transition-transform ${hoverEase} group-hover:scale-[1.03]`}
+      style={{ background: brand.hex.surface }}
     >
       <div className="absolute -top-8 -right-6 size-24 rounded-full bg-primary/25 blur-2xl opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
-      <div className={`relative size-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5`}>
+      <div className={`relative size-full transition-transform duration-700 ease-smooth group-hover:-translate-y-0.5`}>
         {slug === "websites" && (
           <>
             <div className="absolute inset-x-3 top-2.5 flex gap-1">

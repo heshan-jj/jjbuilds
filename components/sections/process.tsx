@@ -13,7 +13,7 @@ export function Process() {
       <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/8 sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, index) => (
           <BlurFade key={step.number} inView delay={index * 0.06}>
-            <li className="h-full bg-background p-6 sm:p-7">
+            <li className="h-full bg-background p-6 transition-colors duration-500 ease-smooth hover:bg-card sm:p-7">
               <span className="font-mono text-xs text-primary">{step.number}</span>
               <h3 className="font-display mt-5 text-2xl tracking-tight">
                 {step.title}

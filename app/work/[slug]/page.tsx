@@ -113,7 +113,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
           {project.stack.map((item) => (
             <li
               key={item}
-              className="rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground"
+              className="rounded-full border border-white/10 px-3 py-1 text-xs text-muted-foreground transition-[border-color,color,background-color] duration-500 ease-smooth hover:border-primary/35 hover:bg-primary/8 hover:text-foreground"
             >
               {item}
             </li>
@@ -128,7 +128,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
             <GlowButton href="/contact">Start a project</GlowButton>
             <Link
               href="/work"
-              className="inline-flex h-12 items-center text-sm text-muted-foreground hover:text-foreground"
+              className="inline-flex h-12 items-center text-sm text-muted-foreground transition-colors duration-500 ease-smooth hover:text-foreground"
             >
               Back to work
             </Link>

@@ -9,7 +9,7 @@ export function Breadcrumbs({
     <nav aria-label="Breadcrumb" className="mb-8">
       <ol className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
         <li>
-          <Link href="/" className="hover:text-foreground">
+          <Link href="/" className="transition-colors duration-500 ease-smooth hover:text-foreground">
             Home
           </Link>
         </li>
@@ -23,7 +23,7 @@ export function Breadcrumbs({
                   {item.label}
                 </span>
               ) : (
-                <Link href={item.href} className="hover:text-foreground">
+                <Link href={item.href} className="transition-colors duration-500 ease-smooth hover:text-foreground">
                   {item.label}
                 </Link>
               )}

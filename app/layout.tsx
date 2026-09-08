@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono, Syne } from "next/font/google"
+import { brand } from "@/brand/tokens"
 import { JsonLd } from "@/components/seo/json-ld"
 import { SiteFooter } from "@/components/site/footer"
 import { SiteNav } from "@/components/site/nav"
@@ -73,15 +74,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: brand.assets.favicon, sizes: "48x48", type: "image/x-icon" },
+      { url: brand.assets.icon, sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: brand.assets.appleIcon, sizes: "180x180", type: "image/png" }],
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#171614",
+  themeColor: brand.hex.ink,
   colorScheme: "dark",
 }
 
