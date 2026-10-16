@@ -1,9 +1,7 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { BlurFade } from "@/components/ui/blur-fade"
 import { JsonLd } from "@/components/seo/json-ld"
 import { PageHero } from "@/components/site/section"
-import { ProjectVisual } from "@/components/work/project-visual"
+import { WorkGallery } from "@/components/work/work-gallery"
 import { breadcrumbJsonLd, pageMetadata, workIndexJsonLd } from "@/lib/seo"
 import { pages, projects } from "@/lib/site"
 
@@ -28,37 +26,8 @@ export default function WorkPage() {
       />
 
       <div className="px-5 pb-24 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-          {projects.map((project, index) => (
-            <BlurFade key={project.slug} inView delay={index * 0.08}>
-              <Link
-                href={`/work/${project.slug}`}
-                className={`hover-lift group block overflow-hidden rounded-2xl border border-white/8 bg-card ${index === 0 ? "md:col-span-2" : ""}`}
-              >
-                <ProjectVisual
-                  accent={project.accent}
-                  title={project.title}
-                  className={
-                    index === 0
-                      ? "aspect-[4/3] transition-transform duration-700 ease-smooth group-hover:scale-[1.03] motion-reduce:group-hover:scale-100 md:aspect-[21/9]"
-                      : "aspect-[16/10] transition-transform duration-700 ease-smooth group-hover:scale-[1.03] motion-reduce:group-hover:scale-100"
-                  }
-                />
-                <div className="p-6 sm:p-8">
-                  <div className="flex gap-3 text-xs text-muted-foreground">
-                    <span>{project.category}</span>
-                    <span>{project.year}</span>
-                  </div>
-                  <h2 className="font-display mt-3 text-3xl tracking-tight">
-                    {project.title}
-                  </h2>
-                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                    {project.summary}
-                  </p>
-                </div>
-              </Link>
-            </BlurFade>
-          ))}
+        <div className="mx-auto max-w-6xl">
+          <WorkGallery initialProjects={projects} />
         </div>
       </div>
     </>

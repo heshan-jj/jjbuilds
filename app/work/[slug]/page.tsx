@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { JsonLd } from "@/components/seo/json-ld"
 import { GlowButton } from "@/components/ui/glow-button"
+import { ReadingProgress } from "@/components/interior/reading-progress"
 import { Breadcrumbs } from "@/components/site/breadcrumbs"
 import { ProjectVisual } from "@/components/work/project-visual"
 import { breadcrumbJsonLd, pageMetadata, projectJsonLd } from "@/lib/seo"
@@ -68,12 +69,27 @@ export default async function WorkDetailPage({ params }: PageProps) {
     <article className="px-5 pt-32 pb-24 sm:px-8 sm:pt-40 lg:px-12">
       <JsonLd data={jsonLd} />
       <div className="mx-auto max-w-6xl">
-        <Breadcrumbs
-          items={[
-            { href: "/work", label: "Work" },
-            { href: `/work/${project.slug}`, label: project.title },
-          ]}
-        />
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Breadcrumbs
+            items={[
+              { href: "/work", label: "Work" },
+              { href: `/work/${project.slug}`, label: project.title },
+            ]}
+          />
+          <ReadingProgress
+            words={
+              (
+                project.summary +
+                " " +
+                project.challenge +
+                " " +
+                project.approach +
+                " " +
+                project.result
+              ).split(/\s+/).length + 80
+            }
+          />
+        </div>
         <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
           {project.category} · {project.year}
         </p>

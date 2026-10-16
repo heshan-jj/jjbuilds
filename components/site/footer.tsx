@@ -2,6 +2,7 @@ import Link from "next/link"
 import { WordmarkName } from "@/brand/wordmark"
 import { navLinks, site } from "@/lib/site"
 import { UnderlineLink } from "@/components/ui/underline-link"
+import { CopyButton } from "@/components/interior/copy-button"
 
 export function SiteFooter() {
   return (
@@ -36,14 +37,23 @@ export function SiteFooter() {
               </UnderlineLink>
             </div>
           </nav>
-          <a
-            href={`mailto:${site.email}`}
-            className="text-sm text-foreground/80 transition-colors duration-500 ease-smooth hover:text-primary"
-          >
-            {site.email}
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={`mailto:${site.email}`}
+              className="text-sm text-foreground/80 transition-colors duration-500 ease-smooth hover:text-primary"
+            >
+              {site.email}
+            </a>
+            <CopyButton
+              value={site.email}
+              label="Copy"
+              copiedLabel="Copied"
+              variant="minimal"
+              className="h-7 px-2 text-[11px]"
+            />
+          </div>
           <p className="text-xs text-muted-foreground/70">
-            © {site.updatedAt.slice(0, 4)} {site.name}. Motion pieces from Skiper UI and Magic UI.
+            © {site.updatedAt.slice(0, 4)} {site.name}. Micro-interactions from interior.dev.
           </p>
         </div>
       </div>

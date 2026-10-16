@@ -3,6 +3,8 @@ import { BookingCalendar } from "@/components/contact/booking"
 import { JsonLd } from "@/components/seo/json-ld"
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GlowButton } from "@/components/ui/glow-button"
+import { CopyButton } from "@/components/interior/copy-button"
+import { Tooltip, TooltipGroup } from "@/components/interior/tooltip-group"
 import { PageHero } from "@/components/site/section"
 import { breadcrumbJsonLd, contactJsonLd, pageMetadata } from "@/lib/seo"
 import { pages, site } from "@/lib/site"
@@ -71,26 +73,34 @@ export default function ContactPage() {
             <p className="text-xs font-medium tracking-[0.22em] text-primary uppercase">
               Prefer email
             </p>
-            <a
-              href={mailto}
-              className="font-display mt-4 block text-2xl tracking-tight break-all transition-colors duration-500 ease-smooth hover:text-primary sm:text-3xl"
-            >
-              {site.email}
-            </a>
-            <div className="mt-5 flex items-center gap-2">
-              {site.socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className="flex size-10 items-center justify-center rounded-full border border-white/12 bg-white/4 text-muted-foreground transition-[background-color,border-color,color,transform] duration-500 ease-smooth hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  <SocialGlyph name={social.name} />
-                </a>
-              ))}
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <a
+                href={mailto}
+                className="font-display block text-2xl tracking-tight break-all transition-colors duration-500 ease-smooth hover:text-primary sm:text-3xl"
+              >
+                {site.email}
+              </a>
+              <CopyButton
+                value={site.email}
+                label="Copy email"
+                copiedLabel="Copied"
+              />
             </div>
+            <TooltipGroup className="mt-5 flex items-center gap-2">
+              {site.socials.map((social) => (
+                <Tooltip key={social.name} label={social.name}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="flex size-10 items-center justify-center rounded-full border border-white/12 bg-white/4 text-muted-foreground transition-[background-color,border-color,color,transform] duration-500 ease-smooth hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <SocialGlyph name={social.name} />
+                  </a>
+                </Tooltip>
+              ))}
+            </TooltipGroup>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Three lines are enough: what you are building, when you need it, and a budget if you
               have one.

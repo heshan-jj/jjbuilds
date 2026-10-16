@@ -1,6 +1,7 @@
 import { BlurFade } from "@/components/ui/blur-fade"
 import { GlowButton } from "@/components/ui/glow-button"
 import { ProgressiveBlur } from "@/components/ui/progressive-blur"
+import { TextReveal } from "@/components/interior/text-reveal"
 import { site } from "@/lib/site"
 
 export function Hero() {
@@ -24,12 +25,18 @@ export function Hero() {
         </BlurFade>
 
         <h1 className="font-display max-w-5xl text-5xl leading-[0.95] tracking-tight text-balance sm:text-7xl lg:text-8xl">
-          <BlurFade delay={0.12} inView>
-            <span className="block">Websites, products,</span>
-          </BlurFade>
-          <BlurFade delay={0.2} inView>
-            <span className="block text-foreground/80">and software that ship.</span>
-          </BlurFade>
+          <TextReveal
+            text="Websites, products,"
+            by="word"
+            stagger={0.06}
+            className="block text-foreground"
+          />
+          <TextReveal
+            text="and software that ship."
+            by="word"
+            stagger={0.06}
+            className="block text-foreground/80"
+          />
         </h1>
 
         <BlurFade delay={0.3} inView>
